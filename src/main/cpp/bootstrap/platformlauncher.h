@@ -42,7 +42,10 @@ class PlatformLauncher {
     static const char *OPT_DEFAULT_USERDIR_ROOT;
     static const char *OPT_HEAP_DUMP;
     static const char *OPT_HEAP_DUMP_PATH;
-    static const char *OPT_JAVA_SECURITY_MANAGER_ALLOW;
+    static const char *OPT_JAVA_AGENT;
+    static const char *OPT_JAVA_AGENT_PATH;
+    static const char *OPT_BOOTCLASSPATH_APPEND;
+    static const char *OPT_BOOTCLASSPATH_APPEND_PATH;
     static const char *OPT_KEEP_WORKING_SET_ON_MINIMIZE;
     static const char *OPT_CLASS_PATH;
     static const char *OPT_SPLASH;

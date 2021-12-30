@@ -52,7 +52,10 @@ const char *PlatformLauncher::OPT_NB_USERDIR = "-Dnetbeans.user=";
 const char *PlatformLauncher::OPT_DEFAULT_USERDIR_ROOT = "-Dnetbeans.default_userdir_root=";
 const char *PlatformLauncher::OPT_HEAP_DUMP = "-XX:+HeapDumpOnOutOfMemoryError";
 const char *PlatformLauncher::OPT_HEAP_DUMP_PATH = "-XX:HeapDumpPath=";
-const char *PlatformLauncher::OPT_JAVA_SECURITY_MANAGER_ALLOW = "-Djava.security.manager=allow";
+const char *PlatformLauncher::OPT_JAVA_AGENT = "-javaagent:";
+const char *PlatformLauncher::OPT_JAVA_AGENT_PATH = "\\core\\tracking-agent.jar";
+const char *PlatformLauncher::OPT_BOOTCLASSPATH_APPEND = "-Xbootclasspath/a:";
+const char *PlatformLauncher::OPT_BOOTCLASSPATH_APPEND_PATH = "\\core\\tracking-agent.jar";
 const char *PlatformLauncher::OPT_KEEP_WORKING_SET_ON_MINIMIZE = "-Dsun.awt.keepWorkingSetOnMinimize=true";
 const char *PlatformLauncher::OPT_CLASS_PATH = "-Djava.class.path=";
 const char *PlatformLauncher::OPT_SPLASH = "-splash:";
@@ -570,7 +573,14 @@ void PlatformLauncher::prepareOptions() {
     option = OPT_KEEP_WORKING_SET_ON_MINIMIZE;
     javaOptions.push_back(option);
 
-    option = OPT_JAVA_SECURITY_MANAGER_ALLOW;
+    option = OPT_JAVA_AGENT;
+    option += platformDir;
+    option += OPT_JAVA_AGENT_PATH;
+    javaOptions.push_back(option);
+
+    option = OPT_BOOTCLASSPATH_APPEND;
+    option += platformDir;
+    option += OPT_BOOTCLASSPATH_APPEND_PATH;
     javaOptions.push_back(option);
 }
 
